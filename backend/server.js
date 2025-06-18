@@ -15,7 +15,7 @@ app.use("/api/kanji", kanjiRoutes);
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => {
-    app.listen(5000, () => {
+    app.listen(process.env.PORT, () => {
       console.log("Server running on http://localhost:5000");
     });
   })

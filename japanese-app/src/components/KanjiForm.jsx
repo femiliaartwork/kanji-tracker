@@ -17,10 +17,15 @@ const KanjiForm = ({ onAdd }) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  // onAdd is a function prop that stores addKanji() from App.js that add the data into the local storage.
+  // onAdd is a function prop that stores addKanji() from App.js that add the data into database
   const handleSubmit = (e) => {
     e.preventDefault();
-    onAdd({ ...form, isLearned: false });
+    onAdd({
+      ...form,
+      onyomi: form.onyomi.split(",").map((s) => s.trim()),
+      kunyomi: form.kunyomi.split(",").map((s) => s.trim()),
+      isLearned: false,
+    });
     setForm({
       kanji: "",
       meaning: "",

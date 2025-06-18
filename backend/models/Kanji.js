@@ -1,8 +1,8 @@
 import mongoose from "mongoose";
 
 const KanjiSchema = new mongoose.Schema({
-  kanji: String,
-  meaning: String,
+  kanji: { type: String, required: true },
+  meaning: { type: String, required: true },
   onyomi: [String],
   kunyomi: [String],
   jlptLevel: Number,
